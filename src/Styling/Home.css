@@ -1,0 +1,28 @@
+
+
+.container{
+width: 100%;
+height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #0B0B0B;
+}
+
+.header{
+    height: 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid pink;
+}
+
+
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    background-color: #181818;
+}
