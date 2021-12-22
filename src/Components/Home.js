@@ -4,33 +4,37 @@ import image from "../assets/headerbg.jpeg"
 import ReactPlayer from 'react-player'
 import links from "../assets/videos/links";
 import video1 from "../assets/videos/video-2.m4v";
+import VideoScroll from './VideoScroll';
+
+let height = window.screen.height;
+
+console.log(height);
 
 class Home extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className='header'>
-                    <div style={{ marginTop: "20px" }}>
-                        <img width={"100px"} src={image}></img>
+                <div className='header' style={{ height: height / 20 }}>
+                    <div style={{ marginTop: "32px" }}>
+                        <img width={height / 10} src={image}></img>
                     </div>
-                    <div style={{ fontSize: "28px", fontFamily: "Pacifico, cursive", color: "pink" }}>Only Thots</div>
-                    <div style={{ transform: "scaleX(-1)", marginTop: "20px" }}>
-                        <img width={"100px"} src={image}></img>
+                    <div style={{ fontSize: height / 35, fontFamily: "Pacifico, cursive", color: "goldenrod", paddingInline: "32px" }}>Only <text style={{ color: "goldenrod" }}>Thots</text></div>
+                    <div style={{ transform: "scaleX(-1)", marginTop: "32px" }}>
+                        <img width={height / 10} src={image}></img>
                     </div>
 
                 </div>
                 <div className='content'>
-
-                    <video src={video1} onDurationChange={(e) => console.log(e)} autoPlay loop></video>
-                    {/* <div ><ReactPlayer height={"100%"} width={"100%"} url={links[0].link} /></div> */}
-
-
-
+                    <div >
+                        <VideoScroll />
+                    </div>
                 </div>
             </div >
+
         )
     }
 }
 
 
 export default Home;
+
