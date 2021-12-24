@@ -15,13 +15,13 @@ class Home extends React.Component {
         return (
             <div className="container">
                 <div className='header' style={{ height: height / 20 }}>
-                    <div style={{ marginTop: "32px" }}>
+                    {/* <div style={{ marginTop: "32px" }}>
                         <img width={height / 10} src={image}></img>
-                    </div>
+                    </div> */}
                     <div style={{ fontSize: height / 35, fontFamily: "Pacifico, cursive", color: "goldenrod", paddingInline: "32px" }}>Only <text style={{ color: "goldenrod" }}>Thots</text></div>
-                    <div style={{ transform: "scaleX(-1)", marginTop: "32px" }}>
+                    {/* <div style={{ transform: "scaleX(-1)", marginTop: "32px" }}>
                         <img width={height / 10} src={image}></img>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className='content'>
