@@ -1,31 +1,31 @@
 
 
 .container{
-width: 100vw;
-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    overflow: hidden;
-}
-
-
-.header{
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid gray;
-    width: 100%;
-    background-color: #0B0B0B;
-    z-index: 1;
-}
-
-
-.content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    padding-inline: 20px;
-}
+    width: 100vw;
+    height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        overflow: hidden;
+    }
+    
+    
+    .header{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 3px solid gray;
+        width: 100%;
+        background-color: #0B0B0B;
+        z-index: 1;
+    }
+    
+    
+    .content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        padding-inline: 20px;
+    }
