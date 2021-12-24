@@ -40,6 +40,16 @@
   padding-inline: 20px;
 }
 
-.bottomBar {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .blurred-container {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .blurred-container {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }

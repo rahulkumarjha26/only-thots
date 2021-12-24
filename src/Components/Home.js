@@ -14,11 +14,11 @@ class Home extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className='header' style={{ height: height / 20 }}>
+                <div className='header' style={{ height: height / 16 }}>
                     {/* <div style={{ marginTop: "32px" }}>
                         <img width={height / 10} src={image}></img>
                     </div> */}
-                    <div style={{ fontSize: height / 35, fontFamily: "Pacifico, cursive", color: "goldenrod", paddingInline: "32px" }}>Only <text style={{ color: "goldenrod" }}>Thots</text></div>
+                    <div style={{ fontSize: height / 35, fontFamily: "Pacifico, cursive", color: "#2EBBAB", paddingInline: "32px" }}>Only <text style={{ color: "goldenrod" }}>Thots</text></div>
                     {/* <div style={{ transform: "scaleX(-1)", marginTop: "32px" }}>
                         <img width={height / 10} src={image}></img>
                     </div> */}
@@ -31,10 +31,8 @@ class Home extends React.Component {
                         <VideoScroll />
                     </div>
                 </div>
-                <div className='bottomBar' style={{ position: "absolute", width: "100%", height: "50px", left: 0, bottom: 0, background: "darkgoldenrod" }}>
-                    <span class="material-icons-outlined">
-                        tune
-                    </span>
+                <div className='blurred-container' style={{ position: "absolute", width: "100%", height: "50px", left: 0, bottom: 0, }}>
+
                 </div>
             </div >
 

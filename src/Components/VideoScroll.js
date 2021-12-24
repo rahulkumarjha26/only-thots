@@ -89,11 +89,11 @@ const RenderCard = (index, modIndex) => {
     return (
 
         <div style={{ display: "flex", background: "black", height: height, width: "100%", overflow: "hidden", justifyContent: "center", alignItems: "flex-start" }}>
-            <video ref={videoRef} onClick={() => setPlay(!play)} autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
+            <video ref={videoRef} onClick={() => setPlay(!play)} preload='none' autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
                 <source src={item.video} type="video/mp4"></source>
             </video>
-            <div style={{ fontFamily: "Libre Franklin, sans-serif", position: 'absolute', color: "#0A385C", padding: "12px", fontSize: "18px", fontWeight: 500, backdropFilter: "grayscale(0.8) opacity(0.9)", width: "100%", display: "flex", justifyContent: "flex-start" }}>
-                <div style={{ paddingLeft: "16px" }}>
+            <div className='blurred-container' style={{ fontFamily: "Libre Franklin, sans-serif", position: 'absolute', color: "#414141", padding: "10px", fontSize: "14px", width: "100%", display: "flex", justifyContent: "flex-start" }}>
+                <div style={{ paddingLeft: "18px" }}>
                     {item.modelName}
                 </div>
             </div>
