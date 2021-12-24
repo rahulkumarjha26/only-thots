@@ -22,12 +22,19 @@ class Home extends React.Component {
                     {/* <div style={{ transform: "scaleX(-1)", marginTop: "32px" }}>
                         <img width={height / 10} src={image}></img>
                     </div> */}
-
+                    <div className='loaderGradient' style={{ height: "6px", width: "100%", display: "block" }}>
+                        .
+                    </div>
                 </div>
                 <div className='content'>
                     <div >
                         <VideoScroll />
                     </div>
+                </div>
+                <div className='bottomBar' style={{ position: "absolute", width: "100%", height: "50px", left: 0, bottom: 0, background: "darkgoldenrod" }}>
+                    <span class="material-icons-outlined">
+                        tune
+                    </span>
                 </div>
             </div >
 

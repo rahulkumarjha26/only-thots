@@ -1,5 +1,5 @@
 
-import React, { Component, useEffect, useRef } from 'react'
+import React, { Component, useEffect, useRef, useState } from 'react'
 import data from '../data'
 import NonPassiveTouchTarget from '../NonPassiveTouchTarget'
 import touchWithMouseHOC from '../../src/touchWithMouseHOC'
@@ -19,6 +19,7 @@ const cardSize = height;
 const cardPadCount = 1
 
 function CarouselContainer(props) {
+
     const { cursor, carouselState, ...rest } = props
     const translateY = (cursor - cardPadCount) * cardSize
     return (
@@ -44,7 +45,7 @@ const VideoScroll = (props) => {
                 cardSize={cardSize}
                 cardCount={videos.length}
                 cardPadCount={cardPadCount}
-                autoplay={5e3}
+                autoplay={5000}
                 vertical
                 loop
                 renderCard={RenderCard}
@@ -56,6 +57,9 @@ const VideoScroll = (props) => {
 
 
 const RenderCard = (index, modIndex) => {
+
+    const [play, setPlay] = useState(false);
+    const [modelName, setModelName] = useState(null);
 
     const videoRef = useRef(null);
 
@@ -85,9 +89,14 @@ const RenderCard = (index, modIndex) => {
     return (
 
         <div style={{ display: "flex", background: "black", height: height, width: "100%", overflow: "hidden", justifyContent: "center", alignItems: "flex-start" }}>
-            <video ref={videoRef} autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
+            <video ref={videoRef} onClick={() => setPlay(!play)} autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
                 <source src={item.video} type="video/mp4"></source>
             </video>
+            <div style={{ fontFamily: "Libre Franklin, sans-serif", position: 'absolute', color: "#0A385C", padding: "12px", fontSize: "18px", fontWeight: 500, backdropFilter: "grayscale(0.8) opacity(0.9)", width: "100%", display: "flex", justifyContent: "flex-start" }}>
+                <div style={{ paddingLeft: "16px" }}>
+                    {item.modelName}
+                </div>
+            </div>
 
 
             {/* <HoverVideoPlayer
@@ -108,25 +117,26 @@ const RenderCard = (index, modIndex) => {
 
 const videos = [
     {
-        key: 2,
-        video: video1,
-    },
-    {
-        key: 3,
+        key: 1,
+        modelName: "Bella Bumzy",
         video: video2,
     },
     {
-        key: 4,
+        key: 2,
+        modelName: "Sam Slayre",
         video: video3,
     },
     {
-        key: 5,
+        key: 3,
+        modelName: "Maria Moobs",
         video: video4,
     },
     {
-        key: 6,
+        key: 4,
+        modelName: "Zayla",
         video: video5,
-    }
+    },
+
 
 ]
 
