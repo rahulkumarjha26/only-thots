@@ -38,6 +38,7 @@
   align-items: center;
   background-color: #202020;
   padding-inline: 20px;
+  overflow: hidden;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
