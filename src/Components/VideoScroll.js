@@ -85,7 +85,7 @@ const RenderCard = (index, modIndex) => {
     return (
 
         <div style={{ display: "flex", background: "black", height: height, width: "100%", overflow: "hidden", justifyContent: "center", alignItems: "flex-start" }}>
-            <video ref={videoRef} autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black" }} >
+            <video ref={videoRef} autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
                 <source src={item.video} type="video/mp4"></source>
             </video>
 
