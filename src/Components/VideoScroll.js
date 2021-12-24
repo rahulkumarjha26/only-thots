@@ -13,9 +13,9 @@ import video5 from "../assets/videos/video-5.mp4"
 
 
 let height = window.screen.height;
-height = (height - height / 10);
+height = (height);
 
-const cardSize = height;
+const cardSize = height - height / 10;
 const cardPadCount = 1
 
 function CarouselContainer(props) {
@@ -88,7 +88,7 @@ const RenderCard = (index, modIndex) => {
 
     return (
 
-        <div style={{ display: "flex", background: "black", height: height, width: "100%", overflow: "hidden", justifyContent: "center", alignItems: "flex-start" }}>
+        <div style={{ display: "flex", background: "transparent", overflow: "hidden", height: height - height / 10, width: "100%", overflow: "hidden", justifyContent: "center", alignItems: "flex-start" }}>
             <video ref={videoRef} onClick={() => setPlay(!play)} preload='none' autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
                 <source src={item.video} type="video/mp4"></source>
             </video>

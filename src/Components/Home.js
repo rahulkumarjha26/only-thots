@@ -31,7 +31,7 @@ class Home extends React.Component {
                         <VideoScroll />
                     </div>
                 </div>
-                <div className='blurred-container' style={{ position: "absolute", width: "100%", height: "50px", left: 0, bottom: 0, }}>
+                <div className='blurred-container' style={{ position: "sticky", width: "100%", height: "50px", left: 0, bottom: 0, }}>
 
                 </div>
             </div >
