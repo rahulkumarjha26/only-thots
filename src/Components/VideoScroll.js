@@ -34,66 +34,11 @@ function CarouselContainer(props) {
 
 const Container = touchWithMouseHOC(CarouselContainer);
 
-const VideoScroll = (props) => {
-
-
-    return (
-        <div style={{ height: "90%", width: "90%", marginTop: height / 15, display: "grid", placeItems: "center", }}>
-            <div className='video-container' style={{ height: height - height / 10 }}>
-                {videos.map((video) => {
-                    return (
-                        <div className='video' style={{ display: "flex", flexDirection: "column", height: height - height / 10, marginBottom: "50px", width: "100%", maxWidth: "500px" }}>
-                            <div style={{ background: "skyblue" }}>
-                                <div className='blurred-container' style={{ height: "40px", width: "100%", display: 'flex', alignItems: 'center' }}>
-                                    <div style={{ paddingLeft: "18px", fontFamily: "Libre Franklin, sans-serif", color: "#414141", fontSize: "14px", }}>
-                                        {video.modelName}
-                                    </div>
-                                </div>
-                            </div>
-                            <div style={{ width: "100%", overflow: 'hidden' }}>
-                                <video key={video.key} preload='none' autoPlay muted controls={false} loop style={{ width: "100%", background: "black" }} >
-                                    <source src={video.video} type="video/mp4"></source>
-                                </video>
-                            </div>
-                            {/* <div style={{ height: "40px", width: "100%", background: "blue" }}>
-
-                            </div>
-                            <video key={video.key} preload='none' autoPlay muted controls={false} loop height={height - height / 10} width={"100%"} style={{ background: "black", objectFit: "fill" }} >
-                                <source src={video.video} type="video/mp4"></source>
-                            </video>
-                            <div style={{ height: "40px", width: "100%", background: "blue" }}>
-
-                            </div> */}
-                        </div>
-                    )
-
-                })}
-            </div>
-        </div>
-
-        // <React.StrictMode>
-        //     <TouchCarousel
-        //         component={Container}
-        //         cardSize={cardSize}
-        //         cardCount={videos.length}
-        //         cardPadCount={cardPadCount}
-        //         autoplay={5000}
-        //         vertical
-        //         loop
-        //         renderCard={RenderCard}
-        //     />
-        // </React.StrictMode>
-    )
-}
-
-
-
-const RenderCard = (index, modIndex) => {
-
-    const [play, setPlay] = useState(false);
-    const [modelName, setModelName] = useState(null);
+const Video = ({ key, modelName, url }) => {
 
     const videoRef = useRef(null);
+    const [playing, setPlaying] = useState(false);
+    const [mute, setMute] = useState(false);
 
     useEffect(() => {
         let options = {
@@ -105,8 +50,10 @@ const RenderCard = (index, modIndex) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     videoRef.current.play();
+                    setPlaying(true);
                 } else {
                     videoRef.current.pause();
+                    setPlaying(false);
                 }
             });
         };
@@ -116,60 +63,66 @@ const RenderCard = (index, modIndex) => {
         observer.observe(videoRef.current);
     });
 
-    const item = videos[modIndex];
+
 
     return (
-
-        <div style={{ display: "flex", background: "transparent", overflow: "hidden", height: height - height / 10, width: "100%", overflow: "hidden", justifyContent: "center", alignItems: "flex-start" }}>
-            <video ref={videoRef} onClick={() => setPlay(!play)} preload='none' autoPlay key={item.key} muted controls={false} loop width={"100%"} style={{ background: "black", maxWidth: "500px" }} >
-                <source src={item.video} type="video/mp4"></source>
-            </video>
-            <div className='blurred-container' style={{ fontFamily: "Libre Franklin, sans-serif", position: 'absolute', color: "#414141", padding: "10px", fontSize: "14px", width: "100%", display: "flex", justifyContent: "flex-start" }}>
-                <div style={{ paddingLeft: "18px" }}>
-                    {item.modelName}
+        <div key={key} className='video' style={{ display: "flex", flexDirection: "column", height: height - height / 10, marginBottom: "50px", width: "100%", maxWidth: "500px" }}>
+            <div style={{ background: "skyblue" }}>
+                <div className='blurred-container' style={{ height: "40px", width: "100%", display: 'flex', alignItems: 'center' }}>
+                    <div style={{ paddingLeft: "18px", fontFamily: "Libre Franklin, sans-serif", color: "#414141", fontSize: "14px", }}>
+                        {modelName}
+                    </div>
                 </div>
             </div>
+            <div style={{ width: "100%", overflow: 'hidden' }}>
+                <video onClick={() => setMute(!mute)} ref={videoRef} preload='none' key={videoRef} muted={!mute || !playing} controls={false} autoPlay loop style={{ width: "100%", background: "black" }} >
+                    <source src={url} type="video/mp4"></source>
+                </video>
+            </div>
 
-
-            {/* <HoverVideoPlayer
-                        preload='none'
-                        muted={false}
-                        sizingMode={"video"}
-                        focused={true}
-                        videoSrc={item.video}
-                        style={{ width: "100%" }}
-                        autoplay={5e3}
-                    /> */}
-        </div >
-
+        </div>
     )
-
 }
+
+const VideoScroll = () => {
+
+    return (
+        <div style={{ height: "90%", width: "90%", marginTop: height / 15, display: "grid", placeItems: "center", }}>
+            <div className='video-container' style={{ height: height - height / 10 }}>
+                {videos.map((video) => {
+                    return (
+                        <Video key={video.key} modelName={video.modelName} url={video.url} />
+                    )
+
+                })}
+            </div>
+        </div>
+    )
+}
+
 
 
 const videos = [
     {
         key: 1,
         modelName: "Bella Bumzy",
-        video: video2,
+        url: video2,
     },
     {
         key: 2,
         modelName: "Sam Slayre",
-        video: video3,
+        url: video3,
     },
     {
         key: 3,
         modelName: "Maria Moobs",
-        video: video4,
+        url: video4,
     },
     {
         key: 4,
         modelName: "Zayla",
-        video: video5,
+        url: video5,
     },
-
-
 ]
 
 export default VideoScroll;
