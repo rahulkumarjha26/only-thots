@@ -13,7 +13,6 @@ import video5 from "../assets/videos/video-5.mp4"
 
 
 let height = window.screen.height;
-height = (height);
 
 const cardSize = height - height / 10;
 const cardPadCount = 1
@@ -39,18 +38,51 @@ const VideoScroll = (props) => {
 
 
     return (
-        <React.StrictMode>
-            <TouchCarousel
-                component={Container}
-                cardSize={cardSize}
-                cardCount={videos.length}
-                cardPadCount={cardPadCount}
-                autoplay={5000}
-                vertical
-                loop
-                renderCard={RenderCard}
-            />
-        </React.StrictMode>
+        <div style={{ height: "90%", width: "90%", marginTop: height / 12, display: "grid", placeItems: "center", }}>
+            <div className='video-container' style={{ height: height - height / 10 }}>
+                {videos.map((video) => {
+                    return (
+                        <div className='video' style={{ display: "flex", flexDirection: "column", height: height - height / 10, marginBottom: "50px", width: "100%", maxWidth: "500px" }}>
+                            <div style={{ background: "skyblue" }}>
+                                <div className='blurred-container' style={{ height: "40px", width: "100%", display: 'flex', alignItems: 'center' }}>
+                                    <div style={{ paddingLeft: "18px", fontFamily: "Libre Franklin, sans-serif", color: "#414141", fontSize: "14px", }}>
+                                        {video.modelName}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={{ width: "100%", overflow: 'hidden' }}>
+                                <video key={video.key} preload='none' autoPlay muted controls={false} loop style={{ width: "100%", background: "black" }} >
+                                    <source src={video.video} type="video/mp4"></source>
+                                </video>
+                            </div>
+                            {/* <div style={{ height: "40px", width: "100%", background: "blue" }}>
+
+                            </div>
+                            <video key={video.key} preload='none' autoPlay muted controls={false} loop height={height - height / 10} width={"100%"} style={{ background: "black", objectFit: "fill" }} >
+                                <source src={video.video} type="video/mp4"></source>
+                            </video>
+                            <div style={{ height: "40px", width: "100%", background: "blue" }}>
+
+                            </div> */}
+                        </div>
+                    )
+
+                })}
+            </div>
+        </div>
+
+        // <React.StrictMode>
+        //     <TouchCarousel
+        //         component={Container}
+        //         cardSize={cardSize}
+        //         cardCount={videos.length}
+        //         cardPadCount={cardPadCount}
+        //         autoplay={5000}
+        //         vertical
+        //         loop
+        //         renderCard={RenderCard}
+        //     />
+        // </React.StrictMode>
     )
 }
 

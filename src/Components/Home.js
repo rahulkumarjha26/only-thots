@@ -14,24 +14,16 @@ class Home extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className='header' style={{ height: height / 16 }}>
-                    {/* <div style={{ marginTop: "32px" }}>
-                        <img width={height / 10} src={image}></img>
-                    </div> */}
+                <div className='header' style={{ height: height / 15 }}>
                     <div style={{ fontSize: height / 35, fontFamily: "Pacifico, cursive", color: "#2EBBAB", paddingInline: "32px" }}>Only <text style={{ color: "goldenrod" }}>Thots</text></div>
-                    {/* <div style={{ transform: "scaleX(-1)", marginTop: "32px" }}>
-                        <img width={height / 10} src={image}></img>
-                    </div> */}
+
                     <div className='loaderGradient' style={{ height: "6px", width: "100%", display: "block" }}>
-                        .
                     </div>
                 </div>
-                <div className='content'>
-                    <div >
-                        <VideoScroll />
-                    </div>
-                </div>
-                <div className='blurred-container' style={{ position: "sticky", width: "100%", height: "50px", left: 0, bottom: 0, }}>
+
+                <VideoScroll />
+
+                <div className='blurred-container' style={{ position: "absolute", width: "100%", height: "40px", left: 0, bottom: 0, zIndex: 3 }}>
 
                 </div>
             </div >
