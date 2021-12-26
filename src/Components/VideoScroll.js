@@ -38,7 +38,7 @@ const VideoScroll = (props) => {
 
 
     return (
-        <div style={{ height: "90%", width: "90%", marginTop: height / 12, display: "grid", placeItems: "center", }}>
+        <div style={{ height: "90%", width: "90%", marginTop: height / 15, display: "grid", placeItems: "center", }}>
             <div className='video-container' style={{ height: height - height / 10 }}>
                 {videos.map((video) => {
                     return (

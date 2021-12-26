@@ -14,7 +14,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className='header' style={{ height: height / 15 }}>
+                <div className='header' style={{ height: height / 18 }}>
                     <div style={{ fontSize: height / 35, fontFamily: "Pacifico, cursive", color: "#2EBBAB", paddingInline: "32px" }}>Only <text style={{ color: "goldenrod" }}>Thots</text></div>
 
                     <div className='loaderGradient' style={{ height: "6px", width: "100%", display: "block" }}>
